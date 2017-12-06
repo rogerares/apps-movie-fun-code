@@ -29,14 +29,13 @@ import java.util.List;
 @Repository
 public class MoviesBean {
 
-    @PersistenceContext
+    @PersistenceContext(unitName="movies")
     private EntityManager entityManager;
 
     public Movie find(Long id) {
         return entityManager.find(Movie.class, id);
     }
 
-    @Transactional
     public void addMovie(Movie movie) {
         entityManager.persist(movie);
     }
@@ -109,6 +108,13 @@ public class MoviesBean {
         q.setMaxResults(maxResults);
         q.setFirstResult(firstResult);
         return q.getResultList();
+    }
+
+    public void deleteAllMovies() {
+        List<Movie> movies = getMovies();
+        for (Movie movie:movies) {
+            this.deleteMovie(movie);
+        }
     }
 
     public void clean() {
