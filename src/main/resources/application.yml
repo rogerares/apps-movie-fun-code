@@ -13,10 +13,10 @@ spring:
 
 logging.level:
   root: WARN
-  org.superbiz.moviefun: DEBUG
+  org.superbiz.moviefun: INFO
 
 s3:
-  endpointUrl: <aws endpoint>
-  accessKey: <access key id>
-  secretKey: <secret access key>
-  bucketName: <name of the bucket>
+  endpointUrl: http://127.0.0.1:9000
+  accessKey: K2S1V3MS74A9SWMS2V93
+  secretKey: 68t1vxqgrzPgW0P+3INoPZY9XBBPk/hBBvUvzLu1
+  bucketName: moviefun
